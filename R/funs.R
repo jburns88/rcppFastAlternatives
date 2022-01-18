@@ -1,5 +1,7 @@
 #' @title Rcpp fast alternative to mvrnorm
-#' @description
+#' @description Rcpp function to generate vector of correlated random deviates
+#' @param Mu vector of means
+#' @param Sigma cholsky decomposed covariance matrix
 #' @import Rcpp
 #' @export
 Rcpp::cppFunction(
@@ -11,10 +13,11 @@ Rcpp::cppFunction(
 ')
 
 #' @title fast sample from multivariate distribution
-#' @description
-#' @param Mu
-#' @param Sigma
-#' @import dplyr
+#' @description calls mvrnormArma function and names vector of deviates that
+#'              it returns
+#' @param Mu vector of means
+#' @param Sigma cholsky decomposed covariance matrix
+#' @import stats
 #' @export
 mvrnorm.fast <- function(Mu, Sigma) {
 
